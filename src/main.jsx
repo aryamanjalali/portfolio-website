@@ -6,13 +6,11 @@ import './index.css'
 
 // Handle GitHub Pages SPA routing
 (function() {
-  var basePath = '/portfolio-website/';
-  
   // Handle query string routing from 404.html
   var search = window.location.search;
   if (search && search.indexOf('?/') !== -1) {
     var path = search.slice(2).replace(/~and~/g, '&');
-    var newPath = basePath + path;
+    var newPath = '/portfolio-website/' + path;
     window.history.replaceState({}, '', newPath);
   }
 })();
