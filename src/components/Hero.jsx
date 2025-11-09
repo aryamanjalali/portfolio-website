@@ -118,7 +118,7 @@ const Hero = () => {
         >
           <div className="image-container">
             <img 
-              src="/images/aryaman-photo.jpg" 
+              src={`${import.meta.env.BASE_URL}images/aryaman-photo.jpg`}
               alt="Aryaman Jalali at Grace Hopper Celebration 2025"
               className="profile-photo"
             />
