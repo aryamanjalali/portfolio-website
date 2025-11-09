@@ -4,42 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aryaman Jalali - Portfolio</title>
-    <script>
+    <script type="text/javascript">
       // Single Page Apps for GitHub Pages
       // https://github.com/rafgraph/spa-github-pages
-      // This script handles routing for React SPA on GitHub Pages with base path
-      var pathSegmentsToKeep = 2; // Keep /portfolio-website/ in the path
+      var pathSegmentsToKeep = 1;
+      var basePath = '/portfolio-website/';
 
       var l = window.location;
-      var basePath = '/portfolio-website/';
+      var pathname = l.pathname;
       
-      // If we're already at the base path, redirect to index
-      if (l.pathname === basePath || l.pathname === basePath.slice(0, -1)) {
-        l.replace(l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") + basePath + "index.html");
-      } else {
-        // Otherwise, redirect to index with the path as query
-        var path = l.pathname.replace(basePath, '').replace(/^\//, '');
-        l.replace(
-          l.protocol +
-            "//" +
-            l.hostname +
-            (l.port ? ":" + l.port : "") +
-            basePath +
-            "index.html?/" +
-            path.replace(/&/g, "~and~") +
-            (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
-            l.hash
-        );
+      // Remove base path from pathname if present
+      if (pathname.startsWith(basePath)) {
+        pathname = pathname.slice(basePath.length - 1);
       }
+      
+      // Build redirect URL
+      var redirect = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        basePath + 'index.html' +
+        (pathname.split('/').slice(1).join('/').replace(/&/g, '~and~') ? '/?/' + pathname.split('/').slice(1).join('/').replace(/&/g, '~and~') : '') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash;
+      
+      window.location.replace(redirect);
     </script>
   </head>
   <body>
+    <p>Redirecting...</p>
     <script>
-      // Fallback: redirect to base path if script above doesn't work
+      // Fallback redirect
       setTimeout(function() {
         window.location.href = '/portfolio-website/';
-      }, 100);
+      }, 1000);
     </script>
   </body>
 </html>
-

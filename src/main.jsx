@@ -7,16 +7,12 @@ import './index.css'
 // Handle GitHub Pages SPA routing
 (function() {
   var basePath = '/portfolio-website/';
-  var redirect = sessionStorage.redirect;
-  delete sessionStorage.redirect;
-  if (redirect && redirect !== location.href) {
-    history.replaceState(null, null, redirect);
-  }
   
   // Handle query string routing from 404.html
-  var path = window.location.search.slice(1);
-  if (path.startsWith('/')) {
-    var newPath = basePath + path.replace(/~and~/g, '&');
+  var search = window.location.search;
+  if (search && search.indexOf('?/') !== -1) {
+    var path = search.slice(2).replace(/~and~/g, '&');
+    var newPath = basePath + path;
     window.history.replaceState({}, '', newPath);
   }
 })();
