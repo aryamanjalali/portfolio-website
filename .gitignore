@@ -23,3 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 
+# Project files (not part of portfolio)
+Kaggle_2.ipynb
+Kaggle_2.pdf
+term_project.R
+*.ipynb
+*.pdf
+*.R
+
