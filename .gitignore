@@ -31,3 +31,17 @@ term_project.R
 *.pdf
 *.R
 
+# Documentation and guide files
+ATS_Resume_Guide.md
+VERIFY_DEPLOYMENT.md
+FIND_WORKFLOW.md
+GITHUB_PAGES_SETUP.md
+DEPLOYMENT.md
+
+# Resume files
+Aryaman_Jalali_Resume_ATS.html
+Aryaman_Jalali_Resume_ATS.txt
+
+# Source images (already in public/)
+AJ.png
+
