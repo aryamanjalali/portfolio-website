@@ -21,8 +21,10 @@
   transition: all 0.3s ease;
   cursor: pointer;
   text-decoration: none;
-  display: block;
+  display: flex;
+  flex-direction: column;
   color: inherit;
+  height: auto;
 }
 
 .project-card .project-content {
