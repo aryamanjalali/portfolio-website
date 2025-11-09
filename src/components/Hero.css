@@ -16,6 +16,7 @@
   bottom: 0;
   z-index: 0;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .gradient-orb {
@@ -73,7 +74,7 @@
   gap: 4rem;
   align-items: center;
   position: relative;
-  z-index: 1;
+  z-index: 5;
 }
 
 .hero-text {
@@ -175,12 +176,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 10;
 }
 
 .image-container {
   position: relative;
   width: 400px;
   height: 400px;
+  z-index: 10;
 }
 
 .profile-photo {
@@ -193,8 +197,9 @@
               0 0 0 5px rgba(59, 130, 246, 0.1),
               inset 0 0 20px rgba(0, 0, 0, 0.2);
   position: relative;
-  z-index: 2;
+  z-index: 10;
   transition: all 0.3s ease;
+  background: var(--dark-bg);
 }
 
 .profile-photo:hover {
