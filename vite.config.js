@@ -1,8 +1,14 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
-  plugins: [react()],
-  base: '/portfolio-website/',
+// https://vitejs.dev/config/
+export default defineConfig(({ command, mode }) => {
+  // Use base path for production builds (GitHub Pages), root for dev
+  const base = command === 'build' ? '/portfolio-website/' : '/'
+  
+  return {
+    plugins: [react()],
+    base,
+  }
 })
 
