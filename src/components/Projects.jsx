@@ -148,14 +148,14 @@ const Projects = () => {
           className="projects-grid"
           variants={containerVariants}
           initial="hidden"
-          animate={isInView ? 'visible' : 'hidden'}
+          animate={isInView ? 'visible' : 'visible'}
         >
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
               className={`project-card ${project.featured ? 'featured' : ''}`}
               initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               onHoverStart={() => setHoveredProject(project.id)}
               onHoverEnd={() => setHoveredProject(null)}
