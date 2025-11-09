@@ -162,17 +162,9 @@ const Projects = () => {
               whileHover={{ y: -10 }}
             >
               <div className="project-image-container">
-                <div
-                  className="project-image"
-                  style={{
-                    backgroundImage: `url(${project.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }}
-                >
-                  <div className="project-github-badge">
-                    <FaGithub />
-                  </div>
+                <div className="project-image"></div>
+                <div className="project-github-badge">
+                  <FaGithub />
                 </div>
               </div>
               <div className="project-content">
