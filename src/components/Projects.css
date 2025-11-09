@@ -16,13 +16,18 @@
 .project-card {
   background: var(--dark-surface);
   border-radius: 20px;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid rgba(59, 130, 246, 0.2);
   transition: all 0.3s ease;
   cursor: pointer;
   text-decoration: none;
   display: block;
   color: inherit;
+}
+
+.project-card .project-content {
+  overflow: hidden;
+  border-radius: 0 0 20px 20px;
 }
 
 .project-card:hover {
@@ -39,11 +44,12 @@
   position: relative;
   width: 100%;
   height: 70px;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(59, 130, 246, 0.05);
+  padding-right: 30px;
 }
 
 .project-image {
@@ -63,18 +69,17 @@
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  left: 0;
+  transform: translateX(0);
 }
 
 .project-card:hover .project-github-badge {
   background: var(--accent-color);
-  transform: scale(1.15);
-  left: 20px;
+  transform: scale(1.15) translateX(15px);
   box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
 }
 
 .project-content {
-  padding: 2rem;
+  padding: 1.5rem 2rem 1rem 2rem;
 }
 
 .project-header {
@@ -108,13 +113,14 @@
 .project-description {
   color: var(--light-text);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .project-technologies {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .tech-tag {
@@ -153,7 +159,7 @@
   }
 
   .project-card:hover .project-github-badge {
-    left: 15px;
+    transform: scale(1.15) translateX(12px);
   }
 }
 
