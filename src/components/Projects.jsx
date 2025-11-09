@@ -1,13 +1,12 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { FaGithub } from 'react-icons/fa'
 import './Projects.css'
 
 const Projects = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: false, amount: 0.1 })
-  const [hoveredProject, setHoveredProject] = useState(null)
 
   const projects = [
     {
@@ -151,14 +150,15 @@ const Projects = () => {
           animate={isInView ? 'visible' : 'visible'}
         >
           {projects.map((project, index) => (
-            <motion.div
+            <motion.a
               key={project.id}
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`project-card ${project.featured ? 'featured' : ''}`}
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              onHoverStart={() => setHoveredProject(project.id)}
-              onHoverEnd={() => setHoveredProject(null)}
               whileHover={{ y: -10 }}
             >
               <div className="project-image-container">
@@ -170,25 +170,9 @@ const Projects = () => {
                     backgroundPosition: 'center',
                   }}
                 >
-                  <motion.div
-                    className="project-overlay"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: hoveredProject === project.id ? 1 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="project-links">
-                      <motion.a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        whileHover={{ scale: 1.2 }}
-                        whileTap={{ scale: 0.9 }}
-                        title="View on GitHub"
-                      >
-                        <FaGithub />
-                      </motion.a>
-                    </div>
-                  </motion.div>
+                  <div className="project-github-badge">
+                    <FaGithub />
+                  </div>
                 </div>
               </div>
               <div className="project-content">
@@ -208,7 +192,7 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </motion.div>
       </div>
